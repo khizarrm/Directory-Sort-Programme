@@ -3,8 +3,16 @@ from os.path import isfile, join
 import os
 import shutil
 import re 
+print("File Organizer - Khizar Malik \n\n\n")
+home_path = os.path.expanduser("~")
 
-filePath = '/Users/khizarmalik/Downloads'
+print("Instructions to find the directory path are found in the ReadMe file\n")
+filePath = input("Would you like to organize your downloads folder? (yes/no) ")
+if filePath == "yes":
+    filePath = home_path + "/Downloads"
+else:
+    filePath = input("What is the path of the directory you would like to organize? ")
+
 
 image_extensions = [
     'jpg', 'jpeg', 'jfif', 'pjpeg', 'pjp',  # JPEG formats
@@ -13,8 +21,8 @@ image_extensions = [
     'tiff', 'tif',                          # Tagged Image File Format
     'bmp', 'dib',                           # Bitmap formats
     'webp',                                 # WebP format
-    'raw', 'cr2', 'nef', 'orf', 'sr2', 'JPG',# RAW formats for various cameras
-    'heic'
+    'raw', 'cr2', 'nef', 'orf', 'sr2',      # RAW formats for various cameras
+    'heic'                                  #iPhone
 ]
 
 document_extensions = [
@@ -77,22 +85,24 @@ for f in files:
         fileTypes.append(extension)
         sourcePath = filePath + '/' + f
         if extension in image_extensions:
-            destPath = '/Users/khizarmalik/Pictures/' + f
+            destPath = home_path + '/Pictures/' + f
             if not os.path.exists(destPath):
-                shutil.move(sourcePath, '/Users/khizarmalik/Pictures')
+                shutil.move(sourcePath, home_path + '/Pictures')
             print("Moved " + f + " to images folder")
         elif extension in document_extensions:
-            destPath = '/Users/khizarmalik/Documents/' + f
+            destPath = home_path + '/Documents/' + f
             if not os.path.exists(destPath):
-                shutil.move(sourcePath, '/Users/khizarmalik/Documents')
+                shutil.move(sourcePath, home_path + '/Documents')
             print("Moved " + f + " to documents folder")
         elif extension in music_extensions:
-            destPath = '/Users/khizarmalik/Music/' + f
+            destPath = home_path + '/Music/' + f
             if not os.path.exists(destPath):
-                shutil.move(sourcePath, '/Users/khizarmalik/Music')
+                shutil.move(sourcePath, home_path + '/Music')
             print("Moved " + f + " to music folder")
         elif extension in video_extensions:
-            destPath = '/Users/khizarmalik/Movies/' + f
+            destPath = home_path + '/Movies/' + f
             if not os.path.exists(destPath):
-                shutil.move(sourcePath, '/Users/khizarmalik/Movies')
+                shutil.move(sourcePath, home_path + '/Movies')
             print("Moved " + f + " to movies folder")
+
+print("Programme Completed.")
