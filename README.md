@@ -1,4 +1,4 @@
-#Directory Organizer - Khizar Malik
+**Directory Organizer - Khizar Malik**
 Summary:
 
 This program organizes files in the downloads folder or any directory specified by the user. It moves files into their respective folders (e.g., images, documents, music, videos) based on their file extensions.
